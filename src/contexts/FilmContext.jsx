@@ -1,6 +1,9 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 
+const apiUrl = import.meta.env.VITE_API_URL;
+const apiKey = import.meta.env.VITE_API_KEY;
+
 
 
 const FilmContext = createContext();
@@ -17,13 +20,13 @@ const FilmProvider = ({children}) => {
 
     useEffect(() => {
         axios
-        .get(`https://api.themoviedb.org/3/search/movie?api_key=aa75aef72e7bba5e87dbbf76ba5bcb11&query=${search}`)
+        .get(`${apiUrl}search/movie?api_key=${apiKey}&query=${search}`)
         .then((resp) => {
             setFilm(resp.data.results);
             console.log(resp.data.results);           
         });
 
-        axios.get(`https://api.themoviedb.org/3/search/tv?api_key=aa75aef72e7bba5e87dbbf76ba5bcb11&query=${search}`)
+        axios.get(`${apiUrl}search/tv?api_key=${apiKey}&query=${search}`)
         .then((resp) => {
             setSeries(resp.data.results);
             console.log(resp.data.results);

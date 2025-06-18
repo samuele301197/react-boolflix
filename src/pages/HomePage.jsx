@@ -6,6 +6,7 @@ const HomePage = () => {
     const { film, series, input, setInput, handleSubmit} = useContext(FilmContext)
 
     return (
+        <header>
         <div>
             <form
          onSubmit={handleSubmit}>
@@ -40,7 +41,8 @@ const HomePage = () => {
                 </li>
                 ))}      
          </ul>
-        </div>        
+        </div> 
+        </header>       
     );
 };
 
