@@ -33,6 +33,7 @@ const FilmProvider = ({children}) => {
             
         })
     }, [search]);
+    
     return (
         <FilmContext.Provider value = {{film,series, input, setInput, handleSubmit}}>
             {children}
